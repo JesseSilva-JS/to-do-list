@@ -1,13 +1,16 @@
+import { useState } from 'react'
+import { Header }  from './components/header/Header'
+import { TaskList } from './components/TaskList/TaskList'
+import './App.module.scss'
+import './Global.module.scss'
 
-
-import styles from './App.module.scss'
-import './global.css'
-
-function App() { 
+export default function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <></>
+   <>
+      <Header/>
+      <TaskList/>
+   </>
   )
 }
-
-export default App
