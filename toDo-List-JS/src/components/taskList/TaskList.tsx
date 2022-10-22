@@ -68,8 +68,6 @@ export function TaskList() {
 
         setTasks(newTasks)
         handleCalculateTaskCompletion();
-        setTasksCompletion(tasksCompletion - 1)
-
     }
 
     function handleCalculateTaskCompletion() {
@@ -79,7 +77,6 @@ export function TaskList() {
         let tasksDone = tasksCompletion.length;
 
         setTasksCompletion(tasksDone)
-
     }
 
     return (
