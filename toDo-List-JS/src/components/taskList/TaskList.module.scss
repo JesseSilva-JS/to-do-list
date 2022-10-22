@@ -71,6 +71,10 @@
          gap: 1rem;  
          margin-bottom: 1rem;
          border-radius: 8px;
+         img{
+            cursor: pointer;
+           
+         }
          p{
             width: 92%;
             word-break: break-all;
@@ -83,6 +87,7 @@
             background: transparent;
             border: none;
          }
+        
       }
    }
 }
