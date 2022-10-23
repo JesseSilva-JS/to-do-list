@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"
+import { ChangeEvent, FormEvent, InvalidEvent, useEffect, useState } from "react"
 import styles from './TaskList.module.scss'
 
 import Trash from '../../assets/svg/Trash.svg'
@@ -36,6 +36,10 @@ export function TaskList() {
         setNewTaskTitle('');
     }
 
+    useEffect(() =>{
+        handleCalculateTaskCompletion()
+    }, [tasks])
+
     function handleNewTaskInvalid(e: InvalidEvent<HTMLInputElement>) {
         e.target.setCustomValidity("Nome da tarefa é obrigatório");
     }
@@ -55,8 +59,6 @@ export function TaskList() {
         tempTasks[taskIndex].isComplete = !tempTasks[taskIndex].isComplete;
 
         setTasks(tempTasks)
-
-        handleCalculateTaskCompletion();
     }
 
     function handleRemoveTask(id: number) {
@@ -65,9 +67,7 @@ export function TaskList() {
         })
 
         const newTasks = tasks.filter((task) => task.id !== id);
-
         setTasks(newTasks)
-        handleCalculateTaskCompletion();
     }
 
     function handleCalculateTaskCompletion() {
